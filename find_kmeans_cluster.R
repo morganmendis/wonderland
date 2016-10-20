@@ -1,6 +1,4 @@
 library(ggplot2)
-# Read in the Charity Data
-train = read.csv("data/cup98LRN.txt",header = TRUE)
 
 # Create a function to help evaluate different K-Means cluster models
 

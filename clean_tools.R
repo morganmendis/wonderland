@@ -73,3 +73,24 @@ fn_correctNumerics  <- function(df, colsChar) {
   return(df)
 }
 
+# (iv) Identify character & date columns for later processing
+fn_DropCharacter <- function(df){
+  #(iv.01) FindCreate list of all character columns
+  colsChar <- list()
+  for(col in colnames(df)){
+    if(class(df[,col]) == "character"){
+      colsChar <- c(colsChar, col)
+    }
+  }
+  
+  #(iv.02) FindCreate list of all date columns
+  colsDate <- list()
+  for(col in colnames(df)){
+    if(class(df[,col]) == "date" | class(df[,col])=="datetime"){
+      colsDate <- c(colsDate, col)
+    }
+  }
+  rm(col)
+  result <- c(colsChar, colsDate)
+  return(result)
+}

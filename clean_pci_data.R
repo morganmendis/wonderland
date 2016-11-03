@@ -1,7 +1,9 @@
+#Adjust settings
+options(warn=-1) #Disable warning messages
+set.seed(240) #Set seed for reproducibility
+
 library(mice)
 library(reshape2)
-
-set.seed(240)
 
 # Read in the Charity Data
 raw = read.csv("data/cup98LRN.txt",header = TRUE)
@@ -12,7 +14,7 @@ raw_y <- raw[,c("TARGET_B","TARGET_D")]
 #Identify explanatory variables
 x_vars <- colnames(raw[!names(raw) %in% c("TARGET_B","TARGET_D","CONTROLN")])
 
-#Create separate Matrix
+#Create separate Matrix of explanatory variables
 raw_x <- raw[,x_vars]
 
 #Select only numeric columns
@@ -34,7 +36,6 @@ raw_x_rob <- raw_x_num[,apply(raw_x_num, 2, missing.ratio) < 0.4]
 #Concatenate target and explanatory variables 
 #Assign to a single dataframe
 raw_clean <- cbind(raw_y,raw_x_rob)
-
 
 
 #What is the pattern regarding missing values in the data?
@@ -66,8 +67,8 @@ test_x <- test[,x_vars]
 print("During data cleansing:")
 print(paste(ncol(raw)-ncol(raw_complete),"columns, were removed."))
 print(paste(nrow(raw)-nrow(raw_complete),"observations, were removed."))
-print(paste("During data cleansing",(ncol(raw_complete)/ncol(raw))*100,"% of features remain"))
-
+print(paste((ncol(raw_complete)/ncol(raw))*100,"% of features remain."))
+print(paste((nrow(raw_complete)/nrow(raw))*100,"% of observations remain."))
 
 rm(raw,raw_complete,samp,x_vars, raw_clean, raw_x_rob, raw_x_num, miss, miss_pattern, numeric_cols) #Clean environment
 

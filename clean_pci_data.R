@@ -38,7 +38,7 @@ raw_clean <- cbind(raw_y,raw_x_rob)
 
 
 #What is the pattern regarding missing values in the data?
-miss_pattern <- md.pattern(clean_raw)
+miss_pattern <- md.pattern(raw_clean)
 miss <- data.frame(miss_pattern) 
 
 

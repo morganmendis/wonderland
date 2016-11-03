@@ -2,14 +2,9 @@ library(stats)
 source('clean_pci_data.R')
 
 #Perform PCA with prcomp()
-train.pca <- prcomp(train.complete,
+train.pca <- prcomp(train_x,
                  center = TRUE,
                  scale. = TRUE)
-
-#Perform PCA with princomp()
-train.prin <- princomp(train.complete,
-                    cor = TRUE,
-                    scores = TRUE)
 
 #Inspect the coeffecient values of the PCA
 print(train.pca)
@@ -24,6 +19,6 @@ cum_prop <- summary(train.pca)
 pc.variance <- train.pca$sdev^2
 plot(pc.variance,type = 'l', xlab = 'Principal Component', ylab = 'Variance')
 
-#variance explained
+#explained variance
 variance.explained <- train.pca$sdev^2 / sum(train.pca$sdev^2)
 plot(variance.explained,type = 'l', xlab = 'Principal Component', ylab = 'Variance Explained')

@@ -1,4 +1,5 @@
 library(stats)
+source('clean_pci_data.R')
 
 #Perform PCA with prcomp()
 train.pca <- prcomp(train.complete,

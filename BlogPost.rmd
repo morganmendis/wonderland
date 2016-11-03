@@ -1,0 +1,53 @@
+---
+title: "Navigating through Wonderland with Yellowbrick"
+output: html_document
+---
+
+#Overview
+In Wonderland, we explored a parallel world to Python's Yellowbrick library. Yellowbrick, still under construction during our project, helps with feature and model selection. Our approach was to assess Yellowbrick's performance coming from two angles:
+
+  1. Manually run the data through different models to independently determine the best model
+  2. Use R's sjPlot library, with similar functionality to Yellowbrick
+
+## The Data: 1998 KDD Challenge: Charity
+We chose to work with the 1998 KDD challenge cup data. With 422 variables and ~191K observations, it presented us with a tall challenge but was large enough to support a wide array of algorithms. The objective of the challenge was to predict both which recipients of a Charity mailing campaign would donate and how much they would donate. The challenge winners claimed their success resulted from strong variable selection. 
+
+```{r}
+#Insert code and/or plots here
+```
+
+### Cleaning
+Who doesn't love cleaning data? We did the standard upfront cleansing by correcting missing values and standardizing dates. Recognizing the value of some categorical variables, we converted hand-selected columns to continuous. 
+
+```{r}
+#Insert code and/or plots here
+```
+
+## Manual Assessment
+### Regression
+We ran a few versions of regression and, using RMSE (Root Mean Squared Error) resolved that LASSO was the best-fitting model.
+
+```{r}
+#Insert code and/or plots here
+```
+
+## Beyond Regression
+Next we did some more advanced stuff. 
+
+### Principal Component Analysis.
+
+```{r}
+#Insert code and/or plots here
+```
+
+## Using Pre-Built sjPlot package in R
+Finally, we ran the Charity data through the sjPlot package in R. While not a perfect 1:1 comparison to Yellowbrick, sjPlot does aim to accomplish the same task. 
+
+```{r}
+#Insert code here
+```
+
+## Conclusion
+There is no one-size-fits-all solution. Even when using helpful tools like the ones tested in this post, data scientists who excel at feature and model selection inevitably understand the algorithms behind each approach. That said, Yellowbrick is excellent at stepping a user through a variety of approaches, illustrating that one improves on another, thus lowering the barriers for those who have a surface comprehension of statistics. 
+
+We look forward to having Yellowbrick as a fully-functioning library for the average pythonista. 

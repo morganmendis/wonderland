@@ -10,16 +10,7 @@ In Wonderland, we explored a parallel world to Python's Yellowbrick library. Yel
   2. Use R's sjPlot library, with similar functionality to Yellowbrick
 
 ## The Data: 1998 KDD Challenge: Charity
-We chose to work with the 1998 KDD challenge cup data. With 422 variables and ~191K observations, it presented us with a tall challenge but was large enough to support a wide array of algorithms. The objective of the challenge was to predict both which recipients of a Charity mailing campaign would donate and how much they would donate. The challenge winners claimed their success resulted from strong variable selection. 
-
-```{r}
-#Insert code and/or plots here
-```
-
-### Cleaning
-Who doesn't love cleaning data? We did the standard upfront cleansing by correcting missing values and standardizing dates. Recognizing the value of some categorical variables, we converted hand-selected columns to continuous. 
-
-First, we read in the data that we saved into the data folder. We separate the data into target and explanatory variables. The two explanatory variables in the data are "Target\_B", whether they responded to the survey, and "Target\_D" what the respondent's donation was. "CONTROL\_N" is a record index. Our manipulation to clean the data will occur on explanatory variables, so we separate the two groups of variables to facilitate our transformations.
+We chose to work with the 1998 KDD challenge cup data. First, we read in the data that we saved into the data folder. We separate the data into target and explanatory variables. The two explanatory variables in the data are "Target\_B", whether they responded to the survey, and "Target\_D" what the respondent's donation was. "CONTROL\_N" is a record index. Our manipulation to clean the data will occur on explanatory variables, so we separate the two groups of variables to facilitate our transformations.
 
 ```{r eval=FALSE}
 # Read in the Charity Data
@@ -35,7 +26,16 @@ x_vars <- colnames(raw[!names(raw) %in% c("TARGET_B","TARGET_D","CONTROLN")])
 raw_x <- raw[,x_vars]
 ```
 
-For many of the models we are interested in testing we would like to utilize numeric data. Numeric columns that are constants are useless to us so we remove any columns without variance. *However, there is a caveat, if we had greater understanding regarding the data we may be able to draw useful from a variable that is a constant that may aid in future model development, simply: It is always best to know your data.*
+For many of the models we are interested in testing we would like to utilize numeric data. Numeric columns that are constants are useless to us so we remove any columns without variance. *However, there is a caveat, if we had greater understanding regarding the With 422 variables and ~191K observations, it presented us with a tall challenge but was large enough to support a wide array of algorithms. The objective of the challenge was to predict both which recipients of a Charity mailing campaign would donate and how much they would donate. The challenge winners claimed their success resulted from strong variable selection. 
+
+```{r}
+#Insert code and/or plots here
+```
+
+### Cleaning
+Who doesn't love cleaning data? We did the standard upfront cleansing by correcting missing values and standardizing dates. Then, recognizing the value of some categorical variables, we converted hand-selected columns to continuous. 
+
+data we may be able to draw useful insight from a variable that is a constant that may aid in future model development, simply: It is always best to know your data.*
 ```{r eval=FALSE}
 #Select only numeric columns
 numeric_cols <- sapply(raw_x, is.numeric)

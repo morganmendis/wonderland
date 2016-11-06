@@ -16,8 +16,7 @@ fn_ConvertCategorical <- function(df){
   
   #(i.03) Loop through YN, Gender & Binary indicator columns, encoding into numerical
   for(col in colsYN){
-    df[(df[,col]=="N") | (df[,col]==" "),col] <- 0    #no
-    df[df[,col]=="Y",col] <- 1    #yes
+    df[,col] <- ifelse(df[,col]=="yes",1,0)
   }
   for(col in colsGender){
     df[df[,col]==" ",col] <- 0    #not provided

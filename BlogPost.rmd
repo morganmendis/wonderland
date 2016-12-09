@@ -111,14 +111,6 @@ plot(variance.explained,type = 'l', xlab = 'Principal Component', ylab = 'Varian
 
 Unfortunately there does not appear to be any indication that the any of the variables are overwhemingly useful to explain the variance observed.
 
-
-## Using Pre-Built sjPlot package in R
-Finally, we ran the Charity data through the sjPlot package in R. While not a perfect 1:1 comparison to Yellowbrick, sjPlot does aim to accomplish the same task. 
-
-```{r}
-#Insert code here
-```
-
 ## Conclusion
 There is no one-size-fits-all solution. Even when using helpful tools like the ones tested in this post, data scientists who excel at feature and model selection inevitably understand the algorithms behind each approach. That said, Yellowbrick is excellent at stepping a user through a variety of approaches, illustrating that one improves on another, thus lowering the barriers for those who have a surface comprehension of statistics. 
 

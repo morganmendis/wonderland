@@ -4,10 +4,7 @@ output: html_document
 ---
 
 #Overview
-In Wonderland, we explored a parallel world to Python's Yellowbrick library. Yellowbrick, still under construction during our project, helps with feature and model selection. Our approach was to assess Yellowbrick's performance coming from two angles:
-
-  1. Manually run the data through different models to independently determine the best model
-  2. Use R's sjPlot library, with similar functionality to Yellowbrick
+In Wonderland, we explored a parallel world to Python's Yellowbrick library. Yellowbrick, still under construction during our project, helps with feature and model selection. Our approach was to assess Yellowbrick's performance by manually running the data through different models to independently determine the best model.
 
 ## The Data: 1998 KDD Challenge: Charity
 We chose to work with the 1998 KDD challenge cup data. First, we read in the data that we saved into the data folder. We separate the data into target and explanatory variables. The two explanatory variables in the data are "Target\_B", whether they responded to the survey, and "Target\_D" what the respondent's donation was. "CONTROL\_N" is a record index. Our manipulation to clean the data will occur on explanatory variables, so we separate the two groups of variables to facilitate our transformations.

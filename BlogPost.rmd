@@ -25,10 +25,6 @@ raw_x <- raw[,x_vars]
 
 For many of the models we are interested in testing we would like to utilize numeric data. Numeric columns that are constants are useless to us so we remove any columns without variance. However, if we had greater understanding of the subject the data corresponded to we may have pursued other methods of feature selection. The objective of the challenge was to predict both which recipients of a Charity mailing campaign would donate and how much they would donate. The challenge winners claimed their success resulted from strong variable selection. 
 
-```{r}
-#Insert code and/or plots here
-```
-
 ### Cleaning
 Who doesn't love cleaning data? We did the standard upfront cleansing by correcting missing values and standardizing dates. Then, recognizing the value of some categorical variables, we converted hand-selected columns to continuous. 
 

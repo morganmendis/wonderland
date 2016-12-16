@@ -1,5 +1,5 @@
 ---
-title: "Navigating through Wonderland with Yellowbrick"
+title: "Navigating through Wonderland without Yellowbrick"
 output: html_document
 ---
 
@@ -7,7 +7,7 @@ output: html_document
 In Wonderland, we explored a parallel world to Python's Yellowbrick library. Yellowbrick, still under construction during our project, helps with feature and model selection. Our approach was to assess Yellowbrick's performance by manually running the data through different models to independently determine the best model.
 
 ## The Data: 1998 KDD Challenge: Charity
-We chose to work with the 1998 KDD challenge cup data. First, we read in the data that we saved into the data folder. We separate the data into target and explanatory variables. The two explanatory variables in the data are "Target\_B", whether they responded to the survey, and "Target\_D" what the respondent's donation was. "CONTROL\_N" is a record index. Our manipulation to clean the data will occur on explanatory variables, so we separate the two groups of variables to facilitate our transformations.
+We chose to work with the 1998 KDD challenge cup data, which included 422 variables and ~191K observation, a challenge in the ability to clean the data and reduce the number of explanatory variables. We separated the data into target and explanatory variables. The two target variables in the data are "Target\_B", whether they responded to the survey, and "Target\_D" what the respondent's donation was. "CONTROL\_N" is a record index and not included in the model. 
 
 ```{r eval=FALSE}
 # Read in the Charity Data
@@ -23,7 +23,7 @@ x_vars <- colnames(raw[!names(raw) %in% c("TARGET_B","TARGET_D","CONTROLN")])
 raw_x <- raw[,x_vars]
 ```
 
-For many of the models we are interested in testing we would like to utilize numeric data. Numeric columns that are constants are useless to us so we remove any columns without variance. *However, there is a caveat, if we had greater understanding regarding the With 422 variables and ~191K observations, it presented us with a tall challenge but was large enough to support a wide array of algorithms. The objective of the challenge was to predict both which recipients of a Charity mailing campaign would donate and how much they would donate. The challenge winners claimed their success resulted from strong variable selection. 
+For many of the models we are interested in testing we would like to utilize numeric data. Numeric columns that are constants are useless to us so we remove any columns without variance. However, if we had greater understanding of the subject the data corresponded to we may have pursued other methods of feature selection. The objective of the challenge was to predict both which recipients of a Charity mailing campaign would donate and how much they would donate. The challenge winners claimed their success resulted from strong variable selection. 
 
 ```{r}
 #Insert code and/or plots here
